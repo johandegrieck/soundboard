@@ -116,7 +116,8 @@
 
 body {
   font-family: Verdana;
-  background-color: #468966; }
+  background-color: #468966;
+  padding-bottom: 100px; }
 
 .header-container {
   display: flex;

@@ -18,6 +18,8 @@
   arr.forEach(function(v,i,a) {
       console.log(document.getElementById(v.getAttribute("data-id")));
       v.addEventListener('click', function(){
+        document.getElementById(v.getAttribute("data-id")).pause();
+        document.getElementById(v.getAttribute("data-id")).currentTime = 0;
         document.getElementById(v.getAttribute("data-id")).play();
       });
   });
