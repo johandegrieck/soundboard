@@ -1,0 +1,239 @@
+/*components*/
+/* toggle */
+/* thx to Mauricio Allendo for nice button */
+/* https://codepen.io/mallendeo/pen/eLIiG */
+/* general toggle style */
+.tgl {
+  display: none; }
+  .tgl, .tgl:after, .tgl:before,
+  .tgl *,
+  .tgl *:after,
+  .tgl *:before,
+  .tgl + .tgl-btn {
+    box-sizing: border-box; }
+    .tgl::selection, .tgl:after::selection, .tgl:before::selection,
+    .tgl *::selection,
+    .tgl *:after::selection,
+    .tgl *:before::selection,
+    .tgl + .tgl-btn::selection {
+      background: none; }
+  .tgl + .tgl-btn {
+    outline: 0;
+    display: block;
+    width: 4em;
+    height: 2em;
+    position: relative;
+    cursor: pointer;
+    user-select: none; }
+    .tgl + .tgl-btn:after, .tgl + .tgl-btn:before {
+      position: relative;
+      display: block;
+      content: "";
+      width: 50%;
+      height: 100%; }
+    .tgl + .tgl-btn:after {
+      left: 0; }
+    .tgl + .tgl-btn:before {
+      display: none; }
+  .tgl:checked + .tgl-btn:after {
+    left: 50%; }
+
+.tgl-light + .tgl-btn {
+  background: #f0f0f0;
+  border-radius: 2em;
+  padding: 2px;
+  transition: all .4s ease; }
+  .tgl-light + .tgl-btn:after {
+    border-radius: 50%;
+    background: #fff;
+    transition: all .2s ease; }
+
+.tgl-light:checked + .tgl-btn {
+  background: #9FD6AE; }
+
+.tgl-ios + .tgl-btn {
+  background: #fbfbfb;
+  border-radius: 2em;
+  padding: 2px;
+  transition: all .4s ease;
+  border: 1px solid #e8eae9; }
+  .tgl-ios + .tgl-btn:after {
+    border-radius: 2em;
+    background: #fbfbfb;
+    transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 0 rgba(0, 0, 0, 0.08); }
+  .tgl-ios + .tgl-btn:hover:after {
+    will-change: padding; }
+  .tgl-ios + .tgl-btn:active {
+    box-shadow: inset 0 0 0 2em #e8eae9; }
+    .tgl-ios + .tgl-btn:active:after {
+      padding-right: .8em; }
+
+.tgl-ios:checked + .tgl-btn {
+  background: #86d993; }
+  .tgl-ios:checked + .tgl-btn:active {
+    box-shadow: none; }
+    .tgl-ios:checked + .tgl-btn:active:after {
+      margin-left: -.8em; }
+
+.tgl-skewed + .tgl-btn {
+  overflow: hidden;
+  transform: skew(-10deg);
+  backface-visibility: hidden;
+  transition: all .2s ease;
+  font-family: sans-serif;
+  background: #888; }
+  .tgl-skewed + .tgl-btn:after, .tgl-skewed + .tgl-btn:before {
+    transform: skew(10deg);
+    display: inline-block;
+    transition: all .2s ease;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    line-height: 2em;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); }
+  .tgl-skewed + .tgl-btn:after {
+    left: 100%;
+    content: attr(data-tg-on); }
+  .tgl-skewed + .tgl-btn:before {
+    left: 0;
+    content: attr(data-tg-off); }
+  .tgl-skewed + .tgl-btn:active {
+    background: #888; }
+    .tgl-skewed + .tgl-btn:active:before {
+      left: -10%; }
+
+.tgl-skewed:checked + .tgl-btn {
+  background: #86d993; }
+  .tgl-skewed:checked + .tgl-btn:before {
+    left: -100%; }
+  .tgl-skewed:checked + .tgl-btn:after {
+    left: 0; }
+  .tgl-skewed:checked + .tgl-btn:active:after {
+    left: 10%; }
+
+body {
+  font-family: Verdana;
+  background-color: #468966; }
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center; }
+
+header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffb03b; }
+
+h2 {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  padding: .3em;
+  font-size: 2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff0a5;
+  flex-grow: 1;
+  margin: 0;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15); }
+
+.stopButton {
+  position: fixed;
+  right: 70px;
+  bottom: 70px;
+  border-radius: 60px;
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border: 2px solid #eee;
+  cursor: pointer;
+  transition: box-shadow .3s; }
+
+.stopButton:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+  background: #a90329;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #a90329 0%, #8f0222 44%, #6d0019 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ }
+
+.stopButton:hover {
+  background-color: #eee;
+  box-shadow: 0 0 15px #eee; }
+
+.myButton {
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+  background: -moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+  background: -webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+  background: -o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+  background: -ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+  background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$secondaryColorBtnPlay', endColorstr='$primaryColorBtnPlay',GradientType=0);
+  background-color: #ffffff;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  cursor: pointer;
+  color: #666666;
+  font-size: 15px;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffffff;
+  margin: .3em; }
+
+.myButton:hover {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
+  background: -moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+  background: -webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+  background: -o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+  background: -ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+  background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$primaryColorBtnPlay', endColorstr='$secondaryColorBtnPlay',GradientType=0);
+  background-color: #f6f6f6; }
+
+.myButton:active {
+  position: relative;
+  top: 1px; }
+
+.checkbox-container {
+  margin-right: 20px; }
+
+.groupcontainer {
+  display: flex;
+  justify-content: center;
+  padding: 20px; }
+
+.group {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #40805e; }
+
+@media only screen and (min-width: 1024px) {
+  header {
+    width: 50%; }
+  .group {
+    width: 50%; }
+  .stopButton {
+    top: 70px; } }
