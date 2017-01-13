@@ -67,4 +67,4 @@ function listFolderFiles($dir){
 listFolderFiles('sounds');
 
 ?>
-<script src="/js/ohyeah.js"></script>
+<script src="js/ohyeah.js"></script>
