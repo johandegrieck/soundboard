@@ -117,13 +117,14 @@
 body {
   font-family: Verdana;
   background-color: #468966;
-  padding-bottom: 100px; }
+  padding-bottom: 300px; }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center; }
+  text-align: center;
+  margin: 10px 0; }
 
 header {
   display: flex;
@@ -219,9 +220,10 @@ h2 {
   margin-right: 20px; }
 
 .groupcontainer {
-  display: flex;
   justify-content: center;
-  padding: 20px; }
+  display: none; }
+  .groupcontainer.act {
+    display: flex; }
 
 .group {
   padding: 10px;

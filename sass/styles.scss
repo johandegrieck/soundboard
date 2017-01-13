@@ -11,6 +11,7 @@ body{
   align-items: center;
   justify-content: center;
   text-align:center;
+  margin: 10px 0;
 }
 header{
 	display:flex;
@@ -112,9 +113,12 @@ h2{
   margin-right:20px;
 }
 .groupcontainer{
-  display: flex;
+
   justify-content: center;
-  padding:20px;
+  display:none;
+  &.act{
+    display: flex;
+  }
 }
 .group{
   padding:10px;

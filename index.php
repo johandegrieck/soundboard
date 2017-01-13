@@ -43,7 +43,7 @@ function listFolderFiles($dir){
               echo '<label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb'.$inputCheckboxCounter.'"></label>';
               echo '</div>';
               echo '</header></div>';
-              echo '<div class="groupcontainer"><div class="group">';
+              echo '<div class="groupcontainer" id="'.str_replace('/','-',$dir.'-'.$ff).'"><div class="group">';
               listFolderFiles($dir.'/'.$ff);
               echo '</div></div>';
               $inputCheckboxCounter++;
