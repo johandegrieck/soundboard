@@ -16,6 +16,11 @@ For compiling scss to css, make sure you have NodeJS and npm installed.
 npm install
 gulp
 ```
+## upcoming features
+
+- volume rocker for the drum loop
+- improved UI
+- more samples coming soon
 
 ## Contributors
 
