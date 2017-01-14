@@ -1,0 +1,39 @@
+.myButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px $secondaryColorBtnPlay;
+	-webkit-box-shadow:inset 0px 1px 0px 0px $secondaryColorBtnPlay;
+	box-shadow:inset 0px 1px 0px 0px $secondaryColorBtnPlay;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, $secondaryColorBtnPlay), color-stop(1, $primaryColorBtnPlay));
+	background:-moz-linear-gradient(top, $secondaryColorBtnPlay 5%, $primaryColorBtnPlay 100%);
+	background:-webkit-linear-gradient(top, $secondaryColorBtnPlay 5%, $primaryColorBtnPlay 100%);
+	background:-o-linear-gradient(top, $secondaryColorBtnPlay 5%, $primaryColorBtnPlay 100%);
+	background:-ms-linear-gradient(top, $secondaryColorBtnPlay 5%, $primaryColorBtnPlay 100%);
+	background:linear-gradient(to bottom, $secondaryColorBtnPlay 5%, $primaryColorBtnPlay 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$secondaryColorBtnPlay', endColorstr='$primaryColorBtnPlay',GradientType=0);
+	background-color:$secondaryColorBtnPlay;
+	-moz-border-radius:$borderRadiusBtnPlay;
+	-webkit-border-radius:$borderRadiusBtnPlay;
+	border-radius:$borderRadiusBtnPlay;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-size:15px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px $secondaryColorBtnPlay;
+  margin:.3em;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, $primaryColorBtnPlay), color-stop(1, $secondaryColorBtnPlay));
+	background:-moz-linear-gradient(top, $primaryColorBtnPlay 5%, $secondaryColorBtnPlay 100%);
+	background:-webkit-linear-gradient(top, $primaryColorBtnPlay 5%, $secondaryColorBtnPlay 100%);
+	background:-o-linear-gradient(top, $primaryColorBtnPlay 5%, $secondaryColorBtnPlay 100%);
+	background:-ms-linear-gradient(top, $primaryColorBtnPlay 5%, $secondaryColorBtnPlay 100%);
+	background:linear-gradient(to bottom, $primaryColorBtnPlay 5%, $secondaryColorBtnPlay 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$primaryColorBtnPlay', endColorstr='$secondaryColorBtnPlay',GradientType=0);
+	background-color:$primaryColorBtnPlay;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}

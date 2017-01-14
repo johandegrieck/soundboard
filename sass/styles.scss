@@ -1,10 +1,18 @@
 @import "global/vars";
+@import "components/buttons";
 @import "components/togglebutton";
+@import "components/radiobutton";
+@import "components/playpausebutton";
 
 body{
   font-family: Verdana;
   background-color:$primaryColor;
   padding-bottom:300px;
+}
+.content{
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
 }
 .header-container{
   display:flex;
@@ -13,6 +21,30 @@ body{
   text-align:center;
   margin: 10px 0;
 }
+
+.beat-selector-container,
+.sample-selector-container,
+.playpause-selector-container{
+  width:100%;
+}
+.beat-selector-container{
+
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding:0;
+
+  }
+}
+.playpause-selector-container{
+  //display: flex;
+  //justify-content: center;
+}
+.play-pause-button{
+  margin-top:20px;
+}
+
 header{
 	display:flex;
 	width:100%;
@@ -41,86 +73,19 @@ h2{
                0 10px 10px rgba(0,0,0,.2),
                0 20px 20px rgba(0,0,0,.15);
 }
-.stopButton{
-  position: fixed;
-  right: 70px;
-  bottom: 70px;
-  border-radius: 60px;
-  width: 60px;
-  height: 60px;
-  background-color: white;
-  border: 2px solid #eee;
-  cursor:pointer;
-  transition: box-shadow .3s;
-}
-.stopButton:before{
-  content:"";
-  position:absolute;
-  left:50%;
-  top:50%;
-  width:50%;
-  height:50%;
-  transform: translate(-50%, -50%);
-  background: $primaryColorBtnStop; /* Old browsers */
-  background: -moz-linear-gradient(top, $primaryColorBtnStop 0%, $secondaryColorBtnStop 44%, $thirdaryColorBtnStop 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, $primaryColorBtnStop 0%,$secondaryColorBtnStop 44%,$thirdaryColorBtnStop 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, $primaryColorBtnStop 0%,$secondaryColorBtnStop 44%,$thirdaryColorBtnStop 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-}
-.stopButton:hover{
-  background-color:#eee;
-  box-shadow: 0 0 15px #eee;
-}
-.myButton {
-	-moz-box-shadow:inset 0px 1px 0px 0px $secondaryColorBtnPlay;
-	-webkit-box-shadow:inset 0px 1px 0px 0px $secondaryColorBtnPlay;
-	box-shadow:inset 0px 1px 0px 0px $secondaryColorBtnPlay;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, $secondaryColorBtnPlay), color-stop(1, $primaryColorBtnPlay));
-	background:-moz-linear-gradient(top, $secondaryColorBtnPlay 5%, $primaryColorBtnPlay 100%);
-	background:-webkit-linear-gradient(top, $secondaryColorBtnPlay 5%, $primaryColorBtnPlay 100%);
-	background:-o-linear-gradient(top, $secondaryColorBtnPlay 5%, $primaryColorBtnPlay 100%);
-	background:-ms-linear-gradient(top, $secondaryColorBtnPlay 5%, $primaryColorBtnPlay 100%);
-	background:linear-gradient(to bottom, $secondaryColorBtnPlay 5%, $primaryColorBtnPlay 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$secondaryColorBtnPlay', endColorstr='$primaryColorBtnPlay',GradientType=0);
-	background-color:$secondaryColorBtnPlay;
-	-moz-border-radius:$borderRadiusBtnPlay;
-	-webkit-border-radius:$borderRadiusBtnPlay;
-	border-radius:$borderRadiusBtnPlay;
-	border:1px solid #dcdcdc;
-	display:inline-block;
-	cursor:pointer;
-	color:#666666;
-	font-size:15px;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px $secondaryColorBtnPlay;
-  margin:.3em;
-}
-.myButton:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, $primaryColorBtnPlay), color-stop(1, $secondaryColorBtnPlay));
-	background:-moz-linear-gradient(top, $primaryColorBtnPlay 5%, $secondaryColorBtnPlay 100%);
-	background:-webkit-linear-gradient(top, $primaryColorBtnPlay 5%, $secondaryColorBtnPlay 100%);
-	background:-o-linear-gradient(top, $primaryColorBtnPlay 5%, $secondaryColorBtnPlay 100%);
-	background:-ms-linear-gradient(top, $primaryColorBtnPlay 5%, $secondaryColorBtnPlay 100%);
-	background:linear-gradient(to bottom, $primaryColorBtnPlay 5%, $secondaryColorBtnPlay 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$primaryColorBtnPlay', endColorstr='$secondaryColorBtnPlay',GradientType=0);
-	background-color:$primaryColorBtnPlay;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
-.checkbox-container{
-  margin-right:20px;
-}
-.groupcontainer{
 
+
+.sample-group-container{
   justify-content: center;
   display:none;
   &.act{
     display: flex;
   }
 }
-.group{
+.sample-group-container-toggle{
+  margin-right: 20px;
+}
+.sample-group{
   padding:10px;
   display: flex;
   justify-content: center;
@@ -129,14 +94,32 @@ h2{
   background-color: rgb(64, 128, 94);
 }
 @media only screen and (min-width: 1024px) {
-  header{
-    width:50%;
-  }
-    .group{
-      width:50%;
+    .content{
+      flex-flow:row;
     }
-    .stopButton{
-      top:70px;
+    .beat-selector-container{
+      width:25%;
+      ul{
+        //flex-flow: columns;
+        margin-top:30px;
+        flex-direction: column;
+        align-items: center;
+
+      }
     }
+    .sample-selector-container{
+      width:60%;
+    }
+    .playpause-selector-container{
+      width:15%
+    }
+    .play-pause-button{
+      margin-top:0;
+      position: fixed;
+      top: 30px;
+      right:50px;
+
+    }
+
 
 }

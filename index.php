@@ -1,6 +1,6 @@
 <head>
+<title>Den bijstand</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -20,51 +20,90 @@
 <meta name="theme-color" content="#ffffff">
 <link rel="stylesheet" href="css/styles.css"/>
 </head>
-<button class="stopButton" onclick="location.reload();"></button>
-<?php
 
-$audioIdCounter = 0;
-$inputCheckboxCounter = 0;
-function listFolderFiles($dir){
+<div class="content">
+  <div class="beat-selector-container">
+    <ul>
+      <li>
+        <input type="radio" id="beat-option-1" data-val="0" name="beatselector" checked="checked">
+        <label for="beat-option-1" data-val="beat01">Beat 1</label>
+        <div class="check"></div>
+      </li>
+      <li>
+        <input type="radio" id="beat-option-2" data-val="1" name="beatselector">
+        <label for="beat-option-2">Beat 2</label>
+        <div class="check"><div class="inside"></div></div>
+      </li>
+      <li>
+        <input type="radio" id="beat-option-3" data-val="2" name="beatselector">
+        <label for="beat-option-3">Beat 3</label>
+        <div class="check"><div class="inside"></div></div>
+      </li>
+      <li>
+        <input type="radio" id="beat-option-4" data-val="3" name="beatselector">
+        <label for="beat-option-4">Beat 4</label>
+        <div class="check"><div class="inside"></div></div>
+      </li>
+    </ul>
+  </div>
+  <div class="sample-selector-container">
+  <?php
 
-    global $audioIdCounter;
-    global $inputCheckboxCounter;
+  $audioIdCounter = 0;
+  $inputCheckboxCounter = 0;
+  function listFolderFiles($dir){
 
-    $ffs = preg_grep('/^([^.])/', scandir($dir));
+      global $audioIdCounter;
+      global $inputCheckboxCounter;
 
-    foreach($ffs as $ff){
-        if($ff != '.' && $ff != '..'){
+      $ffs = preg_grep('/^([^.])/', scandir($dir));
 
-            if(is_dir($dir.'/'.$ff)){
-              echo '<div class="header-container"><header>';
-              echo '<h2>'.str_replace('-',' ',$ff).'</h2>';
-              echo '<div class="checkbox-container">';
-              echo '<input class="tgl tgl-skewed" data="'.str_replace('/','-',$dir.'-'.$ff).'" id="cb'.$inputCheckboxCounter.'" type="checkbox">';
-              echo '<label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb'.$inputCheckboxCounter.'"></label>';
-              echo '</div>';
-              echo '</header></div>';
-              echo '<div class="groupcontainer" id="'.str_replace('/','-',$dir.'-'.$ff).'"><div class="group">';
-              listFolderFiles($dir.'/'.$ff);
-              echo '</div></div>';
-              $inputCheckboxCounter++;
+      foreach($ffs as $ff){
+          if($ff != '.' && $ff != '..'){
 
-            }else{
-              $audioIdCounter++;
-              $htmlString =  '<audio id="'.str_replace('/','-',$dir).'-'.$audioIdCounter .'" ';
-              $htmlString .= 'src="'. $dir.'/'.$ff .'"></audio>';
-              $htmlString .= '<button class="myButton" data-group="'.str_replace('/','-',$dir).'" data-id="'.str_replace('/','-',$dir).'-'.$audioIdCounter.'" >';
-              $htmlString .= str_replace('.mp3','',$ff);
-              $htmlString .= '</button>';
+              if(is_dir($dir.'/'.$ff)){
+                echo '<div class="header-container"><header>';
+                echo '<h2>'.str_replace('-',' ',$ff).'</h2>';
+                echo '<div class="sample-group-container-toggle">';
+                echo '<input class="tgl tgl-skewed" data="'.str_replace('/','-',$dir.'-'.$ff).'" id="cb'.$inputCheckboxCounter.'" type="checkbox">';
+                echo '<label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb'.$inputCheckboxCounter.'"></label>';
+                echo '</div>';
+                echo '</header></div>';
+                echo '<div class="sample-group-container" id="'.str_replace('/','-',$dir.'-'.$ff).'"><div class="sample-group">';
+                listFolderFiles($dir.'/'.$ff);
+                echo '</div></div>';
+                $inputCheckboxCounter++;
 
-              echo $htmlString;
-            }
-        }
-    }
-    $path = '/your/path';
+              }else{
+                $audioIdCounter++;
+                $htmlString =  '<audio id="'.str_replace('/','-',$dir).'-'.$audioIdCounter .'" ';
+                $htmlString .= 'src="'. $dir.'/'.$ff .'"></audio>';
+                $htmlString .= '<button class="myButton" data-sample-group="'.str_replace('/','-',$dir).'" data-id="'.str_replace('/','-',$dir).'-'.$audioIdCounter.'" >';
+                $htmlString .= str_replace('.mp3','',$ff);
+                $htmlString .= '</button>';
 
-}
+                echo $htmlString;
+              }
+          }
+      }
+      $path = '/your/path';
 
-listFolderFiles('sounds');
+  }
 
-?>
+  listFolderFiles('sounds/samples');
+
+  ?>
+  </div>
+  <div class="playpause-selector-container">
+    <div class="play-pause-button" id="btnPlayPause">
+      <div class="c-pp is-play">
+        <div class="c-pp__icon"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/libs/howler.min.js"></script>
 <script src="js/ohyeah.js"></script>
+<?php include_once("ga_tracking.php") ?>

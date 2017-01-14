@@ -1,0 +1,56 @@
+// special thanks to Michael Pumo
+// http://codepen.io/michaelpumo/
+
+// kindly ripped from this codepen: http://codepen.io/michaelpumo/pen/Qyvqbp
+
+// Play / Pause button.
+.c-pp {
+
+    $root: &;
+    $size: 60px;
+    $color: #fff;
+    $trans: 0.2s ease;
+
+    position: relative;
+    width: $size;
+    height: $size;
+    display: block;
+    border: ($size / 30) solid $color;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0 auto;
+    cursor: pointer;
+    user-select: none;
+
+    &__icon {
+
+        // Shared styles.
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        transition: all $trans;
+        width: ($size / 4);
+        height: ($size / 2);
+
+        // Pause styles.
+        transform: translateX($size / 2.6);
+        top: ($size / 4);
+        border-top: 0 solid transparent;
+        border-right: ($size / 12) solid $color;
+        border-bottom: 0 solid transparent;
+        border-left: ($size / 12) solid $color;
+
+        // Play styles.
+        #{$root}.is-play & {
+
+            transform: translateX($size / 2.3);
+            border-top: ($size / 4) solid transparent;
+            border-right: 0px solid transparent;
+            border-bottom: ($size / 4) solid transparent;
+            border-left: ($size / 4) solid $color;
+
+        }
+
+    }
+
+}
