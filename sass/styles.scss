@@ -4,133 +4,131 @@
 @import "components/radiobutton";
 @import "components/playpausebutton";
 
-body{
-  font-family: $primaryFontFamily;
-  background-color:$primaryColor;
-  padding-bottom:300px;
+body {
+    font-family: $primaryFontFamily;
+    background-color: $primaryColor;
+    padding-bottom: 300px;
 }
-.content{
-  display: flex;
-  justify-content: center;
-  flex-flow: column;
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
 }
-.header-container{
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  text-align:center;
-  margin: 10px 0;
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 10px 0;
 }
 
 .beat-selector-container,
-.sample-selector-container,
-.playpause-selector-container{
-  width:100%;
+.playpause-selector-container,
+.sample-selector-container {
+    width: 100%;
 }
-.beat-selector-container{
 
-  ul{
+.beat-selector-container {
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+    }
+}
+
+.playpause-selector-container {
+    //display: flex;
+    //justify-content: center;
+}
+
+.play-pause-button {
+    margin-top: 20px;
+}
+
+header {
     display: flex;
-    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
     justify-content: center;
-    padding:0;
-
-  }
-}
-.playpause-selector-container{
-  //display: flex;
-  //justify-content: center;
-}
-.play-pause-button{
-  margin-top:20px;
+    background-color: $fivedaryColor;
+    transform: skewX(-10deg);
 }
 
-header{
-	display:flex;
-	width:100%;
-	align-items:center;
-	justify-content:center;
-  background-color:$fivedaryColor;
-  transform: skewX(-10deg);
-
-}
-h2{
-  font-family: $primaryFontFamily;
-  padding: .3em;
-  font-size: 2em;
-  font-weight: 700;
-  text-transform: uppercase;
-  color:$secondaryColor;
-  flex-grow: 1;
-  margin: 0;
-  text-shadow: 0 1px 0 #ccc,
-               0 2px 0 #c9c9c9,
-               0 3px 0 #bbb,
-               0 6px 1px rgba(0,0,0,.1),
-               0 0 5px rgba(0,0,0,.1),
-               0 1px 3px rgba(0,0,0,.3),
-               0 3px 5px rgba(0,0,0,.2),
-               0 5px 10px rgba(0,0,0,.25),
-               0 10px 10px rgba(0,0,0,.2),
-               0 20px 20px rgba(0,0,0,.15);
+h2 {
+    font-family: $primaryFontFamily;
+    padding: 0.3em;
+    font-size: 2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $secondaryColor;
+    flex-grow: 1;
+    margin: 0;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
 }
 
+.sample-group-container {
+    justify-content: center;
+    display: none;
 
-.sample-group-container{
-  justify-content: center;
-  display:none;
-  &.act{
+    &.act {
+        display: flex;
+    }
+}
+
+.sample-group-container-toggle {
+    margin-right: 20px;
+}
+
+.sample-group {
+    padding: 10px;
     display: flex;
-  }
-}
-.sample-group-container-toggle{
-  margin-right: 20px;
-}
-.sample-group{
-  padding:10px;
-  display: flex;
-  justify-content: center;
-  align-items:center;
-  flex-wrap: wrap;
-  background-color: rgb(64, 128, 94);
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(64, 128, 94);
 }
 @media only screen and (min-width: 1024px) {
-    .content{
-      flex-flow:row;
-    }
-    .beat-selector-container{
-      width:25%;
-      ul{
-        //flex-flow: columns;
-        //margin-top:30px;
-        flex-direction: column;
-        align-items: center;
-
-      }
-    }
-    .sample-selector-container{
-      width:60%;
-    }
-    .playpause-selector-container{
-      width:15%
-    }
-    .play-pause-button{
-      margin-top:10px;
-
+    .content {
+        flex-flow: row;
     }
 
+    .beat-selector-container {
+        width: 25%;
 
+        ul {
+            //flex-flow: columns;
+            //margin-top:30px;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    .sample-selector-container {
+        width: 60%;
+    }
+
+    .playpause-selector-container {
+        width: 15%;
+    }
+
+    .play-pause-button {
+        margin-top: 10px;
+    }
 }
-
 // overrule the skewed style in header
-header{
-  .tgl-skewed {
-  	+ .tgl-btn {
-  		transform: skew(-0deg);
-  		&:after,
-      &:before {
-  			transform: skew(0deg);
-  		}
+
+header {
+    .tgl-skewed {
+        + .tgl-btn {
+            transform: skew(-0deg);
+
+            &:after,
+            &:before {
+                transform: skew(0deg);
+            }
+        }
     }
-  }
 }
