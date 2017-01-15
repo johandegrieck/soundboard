@@ -4,7 +4,7 @@
 // kindly ripped from this codepen: https://codepen.io/AngelaVelasquez/pen/Eypnq
 
 ul li{
-  color: #AAAAAA;
+  color: $secondaryColor;
   display: block;
   position: relative;
   text-transform: uppercase;
@@ -29,12 +29,13 @@ ul li{
     z-index: 9;
     cursor: pointer;
     -webkit-transition: all 0.25s linear;
+    transform: skew(-10deg);
   }
 
   .check{
     display: block;
     position: absolute;
-    border: 5px solid #AAAAAA;
+    border: 5px solid $secondaryColor;
     border-radius: 100%;
     height: 25px;
     width: 25px;
@@ -64,13 +65,13 @@ ul li{
 }
 
 input[type=radio]:checked ~ .check {
-  border: 5px solid #0DFF92;
+  border: 5px solid $activeBeatSelectorColor;
 }
 
 input[type=radio]:checked ~ .check::before{
-  background: #0DFF92;
+  background: $activeBeatSelectorColor;
 }
 
 input[type=radio]:checked ~ label{
-  color: #0DFF92;
+  color: $activeBeatSelectorColor;
 }

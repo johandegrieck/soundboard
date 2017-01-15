@@ -10,10 +10,10 @@
 	background:linear-gradient(to bottom, $secondaryColorBtnPlay 5%, $primaryColorBtnPlay 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$secondaryColorBtnPlay', endColorstr='$primaryColorBtnPlay',GradientType=0);
 	background-color:$secondaryColorBtnPlay;
-	-moz-border-radius:$borderRadiusBtnPlay;
-	-webkit-border-radius:$borderRadiusBtnPlay;
-	border-radius:$borderRadiusBtnPlay;
-	border:1px solid #dcdcdc;
+	// -moz-border-radius:$borderRadiusBtnPlay;
+	// -webkit-border-radius:$borderRadiusBtnPlay;
+	// border-radius:$borderRadiusBtnPlay;
+	border:none;
 	display:inline-block;
 	cursor:pointer;
 	color:#666666;

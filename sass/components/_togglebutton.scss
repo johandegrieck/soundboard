@@ -105,7 +105,7 @@
 	}
 
 	&:checked + .tgl-btn {
-    background: #86d993;
+    background: $toggleButtonColor;
     &:active {
       box-shadow: none;
       &:after {
@@ -156,7 +156,7 @@
 	}
 
 	&:checked + .tgl-btn {
-    background: #86d993;
+    background: $toggleButtonColor;
     &:before {
       left: -100%;
     }

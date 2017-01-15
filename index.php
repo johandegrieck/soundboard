@@ -23,6 +23,11 @@
 
 <div class="content">
   <div class="beat-selector-container">
+    <div class="play-pause-button" id="btnPlayPause">
+      <div class="c-pp is-play">
+        <div class="c-pp__icon"></div>
+      </div>
+    </div>
     <ul>
       <li>
         <input type="radio" id="beat-option-1" data-val="0" name="beatselector" checked="checked">
@@ -95,11 +100,7 @@
   ?>
   </div>
   <div class="playpause-selector-container">
-    <div class="play-pause-button" id="btnPlayPause">
-      <div class="c-pp is-play">
-        <div class="c-pp__icon"></div>
-      </div>
-    </div>
+
 
   </div>
 </div>

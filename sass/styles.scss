@@ -5,7 +5,7 @@
 @import "components/playpausebutton";
 
 body{
-  font-family: Verdana;
+  font-family: $primaryFontFamily;
   background-color:$primaryColor;
   padding-bottom:300px;
 }
@@ -50,11 +50,12 @@ header{
 	width:100%;
 	align-items:center;
 	justify-content:center;
-  background-color:$thirdaryColor;
+  background-color:$fivedaryColor;
+  transform: skewX(-10deg);
 
 }
 h2{
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-family: $primaryFontFamily;
   padding: .3em;
   font-size: 2em;
   font-weight: 700;
@@ -101,7 +102,7 @@ h2{
       width:25%;
       ul{
         //flex-flow: columns;
-        margin-top:30px;
+        //margin-top:30px;
         flex-direction: column;
         align-items: center;
 
@@ -114,12 +115,22 @@ h2{
       width:15%
     }
     .play-pause-button{
-      margin-top:0;
-      position: fixed;
-      top: 30px;
-      right:50px;
+      margin-top:10px;
 
     }
 
 
+}
+
+// overrule the skewed style in header
+header{
+  .tgl-skewed {
+  	+ .tgl-btn {
+  		transform: skew(-0deg);
+  		&:after,
+      &:before {
+  			transform: skew(0deg);
+  		}
+    }
+  }
 }

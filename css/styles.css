@@ -10,10 +10,7 @@
   background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$secondaryColorBtnPlay', endColorstr='$primaryColorBtnPlay',GradientType=0);
   background-color: #ffffff;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
-  border: 1px solid #dcdcdc;
+  border: none;
   display: inline-block;
   cursor: pointer;
   color: #666666;
@@ -154,7 +151,7 @@
     left: 10%; }
 
 ul li {
-  color: #AAAAAA;
+  color: #fff0a5;
   display: block;
   position: relative;
   text-transform: uppercase; }
@@ -173,11 +170,12 @@ ul li {
     height: 30px;
     z-index: 9;
     cursor: pointer;
-    -webkit-transition: all 0.25s linear; }
+    -webkit-transition: all 0.25s linear;
+    transform: skew(-10deg); }
   ul li .check {
     display: block;
     position: absolute;
-    border: 5px solid #AAAAAA;
+    border: 5px solid #fff0a5;
     border-radius: 100%;
     height: 25px;
     width: 25px;
@@ -201,13 +199,13 @@ ul li {
     -webkit-transition: background 0.25s linear; }
 
 input[type=radio]:checked ~ .check {
-  border: 5px solid #0DFF92; }
+  border: 5px solid #86d993; }
 
 input[type=radio]:checked ~ .check::before {
-  background: #0DFF92; }
+  background: #86d993; }
 
 input[type=radio]:checked ~ label {
-  color: #0DFF92; }
+  color: #86d993; }
 
 .c-pp {
   position: relative;
@@ -241,7 +239,7 @@ input[type=radio]:checked ~ label {
       border-left: 15px solid #fff; }
 
 body {
-  font-family: Verdana;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   background-color: #468966;
   padding-bottom: 300px; }
 
@@ -276,7 +274,8 @@ header {
   width: 100%;
   align-items: center;
   justify-content: center;
-  background-color: #ffb03b; }
+  background-color: #8e2800;
+  transform: skewX(-10deg); }
 
 h2 {
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -312,7 +311,6 @@ h2 {
   .beat-selector-container {
     width: 25%; }
     .beat-selector-container ul {
-      margin-top: 30px;
       flex-direction: column;
       align-items: center; }
   .sample-selector-container {
@@ -320,7 +318,9 @@ h2 {
   .playpause-selector-container {
     width: 15%; }
   .play-pause-button {
-    margin-top: 0;
-    position: fixed;
-    top: 30px;
-    right: 50px; } }
+    margin-top: 10px; } }
+
+header .tgl-skewed + .tgl-btn {
+  transform: skew(0deg); }
+  header .tgl-skewed + .tgl-btn:after, header .tgl-skewed + .tgl-btn:before {
+    transform: skew(0deg); }
