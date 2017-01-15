@@ -30,22 +30,22 @@
     </div>
     <ul>
       <li>
-        <input type="radio" id="beat-option-1" data-val="0" name="beatselector" checked="checked">
-        <label for="beat-option-1" data-val="beat01">Beat 1</label>
+        <input type="radio" id="beat-option-1" class="rbt-beat" data-val="0" name="beatselector" checked="checked">
+        <label for="beat-option-1">Beat 1</label>
         <div class="check"></div>
       </li>
       <li>
-        <input type="radio" id="beat-option-2" data-val="1" name="beatselector">
+        <input type="radio" id="beat-option-2" class="rbt-beat" data-val="1" name="beatselector">
         <label for="beat-option-2">Beat 2</label>
         <div class="check"><div class="inside"></div></div>
       </li>
       <li>
-        <input type="radio" id="beat-option-3" data-val="2" name="beatselector">
+        <input type="radio" id="beat-option-3" class="rbt-beat" data-val="2" name="beatselector">
         <label for="beat-option-3">Beat 3</label>
         <div class="check"><div class="inside"></div></div>
       </li>
       <li>
-        <input type="radio" id="beat-option-4" data-val="3" name="beatselector">
+        <input type="radio" id="beat-option-4" class="rbt-beat" data-val="3" name="beatselector">
         <label for="beat-option-4">Beat 4</label>
         <div class="check"><div class="inside"></div></div>
       </li>
@@ -106,5 +106,5 @@
 </div>
 
 <script src="js/libs/howler.min.js"></script>
-<script src="js/ohyeah.js"></script>
+<script src="js/script.js"></script>
 <?php include_once("ga_tracking.php") ?>

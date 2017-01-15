@@ -15,7 +15,6 @@
   function togglePlayPauseButton(){
 
     var elem = document.getElementById('btnPlayPause').firstElementChild;
-    console.log(elem);
     if(elem.className.includes(" is-play")){ //check if act is already there, else add it
       elem.className = elem.className.replace(" is-play", "");
       gimmeTheBiets(arrBeatUrls[activeBeatIndex]);
@@ -26,6 +25,7 @@
 
 
   }
+
   function gimmeTheBiets(soundUrl){
     beat = new Howl({
       src: soundUrl,
@@ -33,11 +33,12 @@
       loop: true,
       volume: 0.5,
       onend: function() {
-        console.log('Finished!');
+        //console.log('Finished!');
       }
     });
     beat.play();
   }
+
   function stopTheBiets(){
     beat.pause();
   }
@@ -71,12 +72,9 @@
     var arrGroupContainers = document.getElementsByClassName('sample-group-container');
     arrGroupContainers = [].slice.call(arrGroupContainers); // convert the HTML Collection to an array
     arrGroupContainers.forEach(function(v,i,a) {
-      //var elem = document.getElementById(v.getAttribute("data-id"));
-      //console.log(v.getAttribute("id"));
       var x = readCookie(v.getAttribute("id"));
       if (x) {
           v.className += " act";
-          console.log();
           document.querySelectorAll('[data="'+v.getAttribute("id")+'"]')[0].checked = true;
       }
     });
@@ -86,7 +84,6 @@
 
   function setActiveBeatIndex(){
     activeBeatIndex = document.querySelector('input[name="beatselector"]:checked').getAttribute('data-val');
-    console.log("activeBeatIndex", activeBeatIndex);
   }
 
 
@@ -107,15 +104,13 @@
 
     });
 
-
-    //var audio_file = new Audio('sounds/drumloops/beat01.mp3')
-
+    document.getElementById
 
     openActiveSections();
   }
 
 
-  var beat, activeBeatIndex, arrMyBtns, arrToggleBtns, arrBeatUrls, playPauseBtn;
+  var beat, activeBeatIndex, arrMyBtns, arrToggleBtns, arrBeatUrls, arrRadioBtns, playPauseBtn;
 
   arrMyBtns = document.getElementsByClassName('myButton');
   arrMyBtns = [].slice.call(arrMyBtns); // convert the HTML Collection to an array
@@ -144,6 +139,23 @@
         }
 
       });
+  });
+
+  // add change listeners for beatselector radiobuttons
+  // on change the current beat stops and starts the selected beat
+  arrRadioBtns = document.getElementsByClassName('rbt-beat');
+  arrRadioBtns = [].slice.call(arrRadioBtns); // convert the HTML Collection to an array
+  arrRadioBtns.forEach(function(v,i,a) {
+    v.addEventListener('click', function(){
+      //console.log(document.getElementById('btnPlayPause').firstElementChild.className);
+      //stopTheBiets();
+      setActiveBeatIndex();
+      if(document.getElementById('btnPlayPause').firstElementChild.className.indexOf("is-play")<0){
+        stopTheBiets();
+        //console.log(activeBeatIndex);
+        gimmeTheBiets(arrBeatUrls[activeBeatIndex]);
+      }
+    });
   });
 
 
