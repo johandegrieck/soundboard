@@ -103,9 +103,6 @@
       togglePlayPauseButton();
 
     });
-
-    document.getElementById
-
     openActiveSections();
   }
 
