@@ -2,11 +2,15 @@
 // http://codepen.io/michaelpumo/
 // kindly ripped from this codepen: http://codepen.io/michaelpumo/pen/Qyvqbp
 // Play / Pause button.
+
+$root: &;
+$size: 60px;
+$color: $playPauseColor;
+$colorAct: #fff;
+$trans: 0.2s ease;
+
 .c-pp {
-    $root: &;
-    $size: 60px;
-    $color: #fff;
-    $trans: 0.2s ease;
+
     position: relative;
     width: $size;
     height: $size;
@@ -42,4 +46,23 @@
             border-left: ($size / 4) solid $color;
         }
     }
+}
+.c-pp {
+
+  &:hover{
+    -webkit-animation: filter-animation .3s normal forwards ease;
+    //-webkit-filter: invert(1);
+    //filter: invert(1);
+  }
+
+}
+
+@-webkit-keyframes filter-animation {
+  0% {
+    -webkit-filter: invert(0);
+  }
+
+  100% {
+    -webkit-filter: invert(1);
+  }
 }

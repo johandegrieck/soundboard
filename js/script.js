@@ -1,4 +1,21 @@
 (function() {
+
+    // thx to Kalman Olah (aka 'Draaierke') for explaining me how to scope this function
+    window.app = {};
+    var app = window.app;
+    app.setBeatVolume = setBeatVolume;
+
+
+    function setBeatVolume(val){
+      console.log("beatVolume set to:", val);
+      beatVolume = val;
+      if(beat){
+        beat.volume(beatVolume/100);
+      }
+    }
+
+
+
     function togglePlayPauseButton() {
 
         var elem = document.getElementById('btnPlayPause').firstElementChild;
@@ -18,7 +35,7 @@
             src: soundUrl,
             autoplay: false,
             loop: true,
-            volume: 0.5,
+            volume: beatVolume/100,
             onend: function() {
                 //console.log('Finished!');
             }
@@ -77,10 +94,10 @@
         //var beat = new Audio('sounds/drumloops/beat01.mp3');
 
         arrBeatUrls = new Array();
-        arrBeatUrls[0] = ['sounds/drumloops/beat01.mp3', 'sounds/drumloops/beat01.ogg'];
-        arrBeatUrls[1] = ['sounds/drumloops/beat02.mp3', 'sounds/drumloops/beat02.ogg'];
-        arrBeatUrls[2] = ['sounds/drumloops/beat03.mp3', 'sounds/drumloops/beat03.ogg'];
-        arrBeatUrls[3] = ['sounds/drumloops/beat04.mp3', 'sounds/drumloops/beat04.ogg'];
+        arrBeatUrls[0] = ['sounds/drumloops/beat01.ogg'];
+        arrBeatUrls[1] = ['sounds/drumloops/beat02.ogg'];
+        arrBeatUrls[2] = ['sounds/drumloops/beat03.ogg'];
+        arrBeatUrls[3] = ['sounds/drumloops/beat04.ogg'];
 
         playPauseBtn = document.getElementById('btnPlayPause');
         playPauseBtn.addEventListener('click', function() {
@@ -90,10 +107,12 @@
 
         });
         openActiveSections();
+
+        setBeatVolume(document.getElementById("volumeSlider").value);
     }
 
 
-    var beat, activeBeatIndex, arrMyBtns, arrToggleBtns, arrBeatUrls, arrRadioBtns, playPauseBtn;
+    var beat, beatVolume, activeBeatIndex, arrMyBtns, arrToggleBtns, arrBeatUrls, arrRadioBtns, playPauseBtn;
 
     arrMyBtns = document.getElementsByClassName('myButton');
     arrMyBtns = [].slice.call(arrMyBtns); // convert the HTML Collection to an array

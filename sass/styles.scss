@@ -3,6 +3,8 @@
 @import "components/togglebutton";
 @import "components/radiobutton";
 @import "components/playpausebutton";
+@import "components/rangeslider";
+@import "components/icono/icono";
 
 body {
     font-family: $primaryFontFamily;
@@ -46,6 +48,12 @@ body {
 
 .play-pause-button {
     margin-top: 20px;
+}
+.volume-control-container{
+  margin-top:20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 header {

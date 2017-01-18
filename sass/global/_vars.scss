@@ -7,6 +7,7 @@ $secondaryColor:#fff0a5;
 $thirdaryColor:#ffb03b;
 $fourdaryColor:#b64926;
 $fivedaryColor:#8e2800;
+$sixdiaryColor:#86d993;
 
 $primaryColorBtnStop: #a90329;
 $secondaryColorBtnStop: #8f0222;
@@ -16,5 +17,11 @@ $primaryColorBtnPlay: #f6f6f6;
 $secondaryColorBtnPlay: #ffffff;
 $borderRadiusBtnPlay: 6px;
 
-$toggleButtonColor: #86d993;
-$activeBeatSelectorColor: #86d993;
+$toggleButtonColor: $sixdiaryColor;
+$activeBeatSelectorColor: $toggleButtonColor;
+
+$rangeSliderBarColor: $sixdiaryColor;
+$rangeSliderButtonColor: $sixdiaryColor;
+
+$playPauseColor: darken($sixdiaryColor,50%);
+$iconoColor: darken($sixdiaryColor,50%);

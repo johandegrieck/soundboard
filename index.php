@@ -28,6 +28,10 @@
         <div class="c-pp__icon"></div>
       </div>
     </div>
+    <div class="volume-control-container">
+      <i class="icono-volumeMedium"></i>
+      <input type="range" id="volumeSlider" onchange="app.setBeatVolume(this.value);" value="50"/>
+    </div>
     <ul>
       <li>
         <input type="radio" id="beat-option-1" class="rbt-beat" data-val="0" name="beatselector" checked="checked">
