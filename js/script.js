@@ -98,6 +98,7 @@
         arrBeatUrls[1] = ['sounds/drumloops/beat02.ogg'];
         arrBeatUrls[2] = ['sounds/drumloops/beat03.ogg'];
         arrBeatUrls[3] = ['sounds/drumloops/beat04.ogg'];
+        arrBeatUrls[4] = ['sounds/drumloops/beat05.ogg'];
 
         playPauseBtn = document.getElementById('btnPlayPause');
         playPauseBtn.addEventListener('click', function() {

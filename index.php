@@ -53,6 +53,11 @@
         <label for="beat-option-4">Beat 4</label>
         <div class="check"><div class="inside"></div></div>
       </li>
+      <li>
+        <input type="radio" id="beat-option-5" class="rbt-beat" data-val="4" name="beatselector">
+        <label for="beat-option-5">Beat 5</label>
+        <div class="check"><div class="inside"></div></div>
+      </li>
     </ul>
   </div>
   <div class="sample-selector-container">
