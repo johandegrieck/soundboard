@@ -91,7 +91,7 @@
               }else{
                 $audioIdCounter++;
                 $htmlString =  '<audio id="'.str_replace('/','-',$dir).'-'.$audioIdCounter .'" ';
-                $htmlString .= 'src="'. $dir.'/'.$ff .'"></audio>';
+                $htmlString .= 'src="'. $dir.'/'.$ff .'" preload="auto"></audio>';
                 $htmlString .= '<button class="myButton" data-sample-group="'.str_replace('/','-',$dir).'" data-id="'.str_replace('/','-',$dir).'-'.$audioIdCounter.'" >';
                 $htmlString .= str_replace('.mp3','',$ff);
                 $htmlString .= '</button>';
